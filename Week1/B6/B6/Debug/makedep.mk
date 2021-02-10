@@ -4,7 +4,3 @@
 
 main.c
 
-src\ASF\common\boards\user_board\init.c
-
-src\main.c
-

@@ -18,8 +18,9 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-
-
+void setCharliePlexingLed(int lednr);
+void setBitOne(int bit);
+void setBitZero(int bit);
 
 /******************************************************************/
 void wait( int ms )
@@ -49,34 +50,66 @@ notes:			Looping forever, flipping bits on PORTD
 Version :    	DMK, Initial code
 *******************************************************************/
 {
-	
-	DDRD = 0b11111111;			// All pins PORTD are set to output 
-	DDRC = 0b00000000;
-	int fast = 0;
-	int hz = 1000;
-	
+	int i = 0;
+	int number[] = {1,2,3,4,5,6};
 	while (1)
 	{
-		if (PINC & 0x01)
-		{
-			fast = (fast + 1) % 2;
-			
-			if (fast == 1)
-			{
-				hz = 250;
-			}else{
-				hz = 1000;
-			}
-		}
-		
-		if (PORTD == 0x80)
-		{
-			PORTD = 0x00;	
-		}else{
-			PORTD = 0x80;
-		}
-		wait(hz);		
+		i++;
+		i = i%6;
+		int j = number[i];
+		setCharliePlexingLed(j);
+		wait(1000);
 	}
 
 	return 1;
+}
+
+
+void setCharliePlexingLed(int lednr) {
+	DDRD = 0b00001110;			// 3 pins PORTD are set to output 
+	
+	switch(lednr) {
+		case 1:
+			setBitOne(1);
+			setBitZero(2);
+			DDRD = 0b00000110;
+			break;
+		case 2:
+			setBitZero(1);
+			setBitOne(2);
+			DDRD = 0b00000110;
+			break;
+		case 3:	
+			DDRD = 0b00001100;
+			setBitOne(2);
+			setBitZero(3);
+			break;
+		case 4:
+			DDRD = 0b00001100;
+			setBitZero(2);
+			setBitOne(3);
+			break;
+		case 5:
+			setBitZero(1);
+			DDRD = 0b00001010;
+			setBitOne(3);
+			break;
+		case 6:
+			setBitOne(1);
+			DDRD = 0b00001010;
+			setBitZero(3);
+			break;
+	}
+
+}
+
+void setBitOne(int bit) {
+	int orValue = 0b00000001 << bit;
+	PORTD = orValue | PORTD;
+}
+
+void setBitZero(int bit) {
+	int orValue = 0b00000001 << bit;
+	orValue = ~orValue;
+	PORTD = orValue & PORTD;
 }

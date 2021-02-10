@@ -1,0 +1,6 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/program files/microchip/xc8/v2.31/avr/bin/../lib/gcc/avr/5.4.0/avr51/memx-const\libgcc.a(_exit.o)
+                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128a.o (exit)
+c:/program files/microchip/xc8/v2.31/avr/bin/../lib/gcc/avr/5.4.0/avr51/memx-const\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)

@@ -1,0 +1,468 @@
+
+B7 keuze 2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  0000029e  00000312  2**0
+                  ALLOC, LOAD, DATA
+  1 .text         000000ec  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000002f  00000000  00000000  00000312  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000040  00000000  00000000  00000341  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000d51  00000000  00000000  00000381  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000857  00000000  00000000  000010d2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   0000038b  00000000  00000000  00001929  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000074  00000000  00000000  00001cb4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000027d  00000000  00000000  00001d28  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000249  00000000  00000000  00001fa5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000030  00000000  00000000  000021ee  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .text         00000004  0000028e  0000028e  00000302  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00002220  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .text.wait    0000001e  00000240  00000240  000002b4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.setBitOne 00000016  00000278  00000278  000002ec  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.setBitZero 0000001a  0000025e  0000025e  000002d2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.setCharliePlexingLed 000000aa  000000ec  000000ec  00000160  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .rodata       0000000c  00800100  00000292  00000306  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 18 .text.main    0000005a  00000196  00000196  0000020a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.libgcc.div 00000028  000001f0  000001f0  00000264  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.libgcc.div 00000028  00000218  00000218  0000028c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 4a 00 	jmp	0x94	; 0x94 <__ctors_end>
+   4:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+   8:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+   c:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  10:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  14:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  18:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  1c:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  20:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  24:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  28:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  2c:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  30:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  34:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  38:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  3c:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  40:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  44:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  48:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  4c:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  50:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  54:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  58:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  5c:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  60:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  64:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  68:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  6c:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  70:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  74:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  78:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  7c:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  80:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  84:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+  88:	0c 94 47 01 	jmp	0x28e	; 0x28e <__bad_interrupt>
+
+0000008c <.dinit>:
+  8c:	01 00       	.word	0x0001	; ????
+  8e:	01 0c       	add	r0, r1
+  90:	00 02       	muls	r16, r16
+  92:	92 00       	.word	0x0092	; ????
+
+00000094 <__ctors_end>:
+  94:	11 24       	eor	r1, r1
+  96:	1f be       	out	0x3f, r1	; 63
+  98:	cf ef       	ldi	r28, 0xFF	; 255
+  9a:	d0 e1       	ldi	r29, 0x10	; 16
+  9c:	de bf       	out	0x3e, r29	; 62
+  9e:	cd bf       	out	0x3d, r28	; 61
+
+000000a0 <__do_copy_data>:
+  a0:	ec e8       	ldi	r30, 0x8C	; 140
+  a2:	f0 e0       	ldi	r31, 0x00	; 0
+  a4:	40 e0       	ldi	r20, 0x00	; 0
+  a6:	19 c0       	rjmp	.+50     	; 0xda <__do_clear_bss+0x8>
+  a8:	b7 91       	elpm	r27, Z+
+  aa:	a7 91       	elpm	r26, Z+
+  ac:	37 91       	elpm	r19, Z+
+  ae:	27 91       	elpm	r18, Z+
+  b0:	07 91       	elpm	r16, Z+
+  b2:	07 fd       	sbrc	r16, 7
+  b4:	0e c0       	rjmp	.+28     	; 0xd2 <__do_clear_bss>
+  b6:	97 91       	elpm	r25, Z+
+  b8:	87 91       	elpm	r24, Z+
+  ba:	ef 01       	movw	r28, r30
+  bc:	f9 2f       	mov	r31, r25
+  be:	e8 2f       	mov	r30, r24
+  c0:	0b bf       	out	0x3b, r16	; 59
+  c2:	07 90       	elpm	r0, Z+
+  c4:	0d 92       	st	X+, r0
+  c6:	a2 17       	cp	r26, r18
+  c8:	b3 07       	cpc	r27, r19
+  ca:	d9 f7       	brne	.-10     	; 0xc2 <__do_copy_data+0x22>
+  cc:	fe 01       	movw	r30, r28
+  ce:	1b be       	out	0x3b, r1	; 59
+  d0:	04 c0       	rjmp	.+8      	; 0xda <__do_clear_bss+0x8>
+
+000000d2 <__do_clear_bss>:
+  d2:	1d 92       	st	X+, r1
+  d4:	a2 17       	cp	r26, r18
+  d6:	b3 07       	cpc	r27, r19
+  d8:	e1 f7       	brne	.-8      	; 0xd2 <__do_clear_bss>
+  da:	e3 39       	cpi	r30, 0x93	; 147
+  dc:	f4 07       	cpc	r31, r20
+  de:	21 f7       	brne	.-56     	; 0xa8 <__do_copy_data+0x8>
+  e0:	0e 94 cb 00 	call	0x196	; 0x196 <main>
+  e4:	0c 94 74 00 	jmp	0xe8	; 0xe8 <_exit>
+
+000000e8 <_exit>:
+  e8:	f8 94       	cli
+
+000000ea <__stop_program>:
+  ea:	ff cf       	rjmp	.-2      	; 0xea <__stop_program>
+
+Disassembly of section .text:
+
+0000028e <__bad_interrupt>:
+ 28e:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.wait:
+
+00000240 <wait>:
+				clock value is set. This is used by _delay_ms inside
+				util/delay.h
+Version :    	DMK, Initial code
+*******************************************************************/
+{
+	for (int i=0; i<ms; i++)
+ 240:	20 e0       	ldi	r18, 0x00	; 0
+ 242:	30 e0       	ldi	r19, 0x00	; 0
+ 244:	08 c0       	rjmp	.+16     	; 0x256 <wait+0x16>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 246:	ef ec       	ldi	r30, 0xCF	; 207
+ 248:	f7 e0       	ldi	r31, 0x07	; 7
+ 24a:	31 97       	sbiw	r30, 0x01	; 1
+ 24c:	f1 f7       	brne	.-4      	; 0x24a <wait+0xa>
+ 24e:	00 c0       	rjmp	.+0      	; 0x250 <wait+0x10>
+ 250:	00 00       	nop
+ 252:	2f 5f       	subi	r18, 0xFF	; 255
+ 254:	3f 4f       	sbci	r19, 0xFF	; 255
+ 256:	28 17       	cp	r18, r24
+ 258:	39 07       	cpc	r19, r25
+ 25a:	ac f3       	brlt	.-22     	; 0x246 <wait+0x6>
+	{
+		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
+	}
+}
+ 25c:	08 95       	ret
+
+Disassembly of section .text.setBitOne:
+
+00000278 <setBitOne>:
+	}
+
+}
+
+void setBitOne(int bit) {
+	int orValue = 0b00000001 << bit;
+ 278:	21 e0       	ldi	r18, 0x01	; 1
+ 27a:	30 e0       	ldi	r19, 0x00	; 0
+ 27c:	02 c0       	rjmp	.+4      	; 0x282 <setBitOne+0xa>
+ 27e:	22 0f       	add	r18, r18
+ 280:	33 1f       	adc	r19, r19
+ 282:	8a 95       	dec	r24
+ 284:	e2 f7       	brpl	.-8      	; 0x27e <setBitOne+0x6>
+	PORTD = orValue | PORTD;
+ 286:	82 b3       	in	r24, 0x12	; 18
+ 288:	28 2b       	or	r18, r24
+ 28a:	22 bb       	out	0x12, r18	; 18
+ 28c:	08 95       	ret
+
+Disassembly of section .text.setBitZero:
+
+0000025e <setBitZero>:
+}
+
+void setBitZero(int bit) {
+	int orValue = 0b00000001 << bit;
+ 25e:	21 e0       	ldi	r18, 0x01	; 1
+ 260:	30 e0       	ldi	r19, 0x00	; 0
+ 262:	02 c0       	rjmp	.+4      	; 0x268 <setBitZero+0xa>
+ 264:	22 0f       	add	r18, r18
+ 266:	33 1f       	adc	r19, r19
+ 268:	8a 95       	dec	r24
+ 26a:	e2 f7       	brpl	.-8      	; 0x264 <setBitZero+0x6>
+	orValue = ~orValue;
+ 26c:	20 95       	com	r18
+ 26e:	30 95       	com	r19
+	PORTD = orValue & PORTD;
+ 270:	82 b3       	in	r24, 0x12	; 18
+ 272:	28 23       	and	r18, r24
+ 274:	22 bb       	out	0x12, r18	; 18
+ 276:	08 95       	ret
+
+Disassembly of section .text.setCharliePlexingLed:
+
+000000ec <setCharliePlexingLed>:
+	return 1;
+}
+
+
+void setCharliePlexingLed(int lednr) {
+	DDRD = 0b00001110;			// 3 pins PORTD are set to output 
+  ec:	2e e0       	ldi	r18, 0x0E	; 14
+  ee:	21 bb       	out	0x11, r18	; 17
+	
+	switch(lednr) {
+  f0:	83 30       	cpi	r24, 0x03	; 3
+  f2:	91 05       	cpc	r25, r1
+  f4:	21 f1       	breq	.+72     	; 0x13e <setCharliePlexingLed+0x52>
+  f6:	34 f4       	brge	.+12     	; 0x104 <setCharliePlexingLed+0x18>
+  f8:	81 30       	cpi	r24, 0x01	; 1
+  fa:	91 05       	cpc	r25, r1
+  fc:	51 f0       	breq	.+20     	; 0x112 <setCharliePlexingLed+0x26>
+  fe:	02 97       	sbiw	r24, 0x02	; 2
+ 100:	99 f0       	breq	.+38     	; 0x128 <setCharliePlexingLed+0x3c>
+ 102:	08 95       	ret
+ 104:	85 30       	cpi	r24, 0x05	; 5
+ 106:	91 05       	cpc	r25, r1
+ 108:	81 f1       	breq	.+96     	; 0x16a <setCharliePlexingLed+0x7e>
+ 10a:	24 f1       	brlt	.+72     	; 0x154 <setCharliePlexingLed+0x68>
+ 10c:	06 97       	sbiw	r24, 0x06	; 6
+ 10e:	c1 f1       	breq	.+112    	; 0x180 <setCharliePlexingLed+0x94>
+ 110:	08 95       	ret
+		case 1:
+			setBitOne(1);
+ 112:	81 e0       	ldi	r24, 0x01	; 1
+ 114:	90 e0       	ldi	r25, 0x00	; 0
+ 116:	0e 94 3c 01 	call	0x278	; 0x278 <setBitOne>
+			setBitZero(2);
+ 11a:	82 e0       	ldi	r24, 0x02	; 2
+ 11c:	90 e0       	ldi	r25, 0x00	; 0
+ 11e:	0e 94 2f 01 	call	0x25e	; 0x25e <setBitZero>
+			DDRD = 0b00000110;
+ 122:	86 e0       	ldi	r24, 0x06	; 6
+ 124:	81 bb       	out	0x11, r24	; 17
+			break;
+ 126:	08 95       	ret
+		case 2:
+			setBitZero(1);
+ 128:	81 e0       	ldi	r24, 0x01	; 1
+ 12a:	90 e0       	ldi	r25, 0x00	; 0
+ 12c:	0e 94 2f 01 	call	0x25e	; 0x25e <setBitZero>
+			setBitOne(2);
+ 130:	82 e0       	ldi	r24, 0x02	; 2
+ 132:	90 e0       	ldi	r25, 0x00	; 0
+ 134:	0e 94 3c 01 	call	0x278	; 0x278 <setBitOne>
+			DDRD = 0b00000110;
+ 138:	86 e0       	ldi	r24, 0x06	; 6
+ 13a:	81 bb       	out	0x11, r24	; 17
+			break;
+ 13c:	08 95       	ret
+		case 3:	
+			DDRD = 0b00001100;
+ 13e:	8c e0       	ldi	r24, 0x0C	; 12
+ 140:	81 bb       	out	0x11, r24	; 17
+			setBitOne(2);
+ 142:	82 e0       	ldi	r24, 0x02	; 2
+ 144:	90 e0       	ldi	r25, 0x00	; 0
+ 146:	0e 94 3c 01 	call	0x278	; 0x278 <setBitOne>
+			setBitZero(3);
+ 14a:	83 e0       	ldi	r24, 0x03	; 3
+ 14c:	90 e0       	ldi	r25, 0x00	; 0
+ 14e:	0e 94 2f 01 	call	0x25e	; 0x25e <setBitZero>
+			break;
+ 152:	08 95       	ret
+		case 4:
+			DDRD = 0b00001100;
+ 154:	8c e0       	ldi	r24, 0x0C	; 12
+ 156:	81 bb       	out	0x11, r24	; 17
+			setBitZero(2);
+ 158:	82 e0       	ldi	r24, 0x02	; 2
+ 15a:	90 e0       	ldi	r25, 0x00	; 0
+ 15c:	0e 94 2f 01 	call	0x25e	; 0x25e <setBitZero>
+			setBitOne(3);
+ 160:	83 e0       	ldi	r24, 0x03	; 3
+ 162:	90 e0       	ldi	r25, 0x00	; 0
+ 164:	0e 94 3c 01 	call	0x278	; 0x278 <setBitOne>
+			break;
+ 168:	08 95       	ret
+		case 5:
+			setBitZero(1);
+ 16a:	81 e0       	ldi	r24, 0x01	; 1
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+ 16e:	0e 94 2f 01 	call	0x25e	; 0x25e <setBitZero>
+			DDRD = 0b00001010;
+ 172:	8a e0       	ldi	r24, 0x0A	; 10
+ 174:	81 bb       	out	0x11, r24	; 17
+			setBitOne(3);
+ 176:	83 e0       	ldi	r24, 0x03	; 3
+ 178:	90 e0       	ldi	r25, 0x00	; 0
+ 17a:	0e 94 3c 01 	call	0x278	; 0x278 <setBitOne>
+			break;
+ 17e:	08 95       	ret
+		case 6:
+			setBitOne(1);
+ 180:	81 e0       	ldi	r24, 0x01	; 1
+ 182:	90 e0       	ldi	r25, 0x00	; 0
+ 184:	0e 94 3c 01 	call	0x278	; 0x278 <setBitOne>
+			DDRD = 0b00001010;
+ 188:	8a e0       	ldi	r24, 0x0A	; 10
+ 18a:	81 bb       	out	0x11, r24	; 17
+			setBitZero(3);
+ 18c:	83 e0       	ldi	r24, 0x03	; 3
+ 18e:	90 e0       	ldi	r25, 0x00	; 0
+ 190:	0e 94 2f 01 	call	0x25e	; 0x25e <setBitZero>
+ 194:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000196 <main>:
+inputs:			
+outputs:	
+notes:			Looping forever, flipping bits on PORTD
+Version :    	DMK, Initial code
+*******************************************************************/
+{
+ 196:	cf 93       	push	r28
+ 198:	df 93       	push	r29
+ 19a:	cd b7       	in	r28, 0x3d	; 61
+ 19c:	de b7       	in	r29, 0x3e	; 62
+ 19e:	2c 97       	sbiw	r28, 0x0c	; 12
+ 1a0:	0f b6       	in	r0, 0x3f	; 63
+ 1a2:	f8 94       	cli
+ 1a4:	de bf       	out	0x3e, r29	; 62
+ 1a6:	0f be       	out	0x3f, r0	; 63
+ 1a8:	cd bf       	out	0x3d, r28	; 61
+	int i = 0;
+	int number[] = {1,2,3,4,5,6};
+ 1aa:	8c e0       	ldi	r24, 0x0C	; 12
+ 1ac:	e0 e0       	ldi	r30, 0x00	; 0
+ 1ae:	f1 e0       	ldi	r31, 0x01	; 1
+ 1b0:	de 01       	movw	r26, r28
+ 1b2:	11 96       	adiw	r26, 0x01	; 1
+ 1b4:	01 90       	ld	r0, Z+
+ 1b6:	0d 92       	st	X+, r0
+ 1b8:	8a 95       	dec	r24
+ 1ba:	e1 f7       	brne	.-8      	; 0x1b4 <main+0x1e>
+outputs:	
+notes:			Looping forever, flipping bits on PORTD
+Version :    	DMK, Initial code
+*******************************************************************/
+{
+	int i = 0;
+ 1bc:	00 e0       	ldi	r16, 0x00	; 0
+ 1be:	10 e0       	ldi	r17, 0x00	; 0
+	int number[] = {1,2,3,4,5,6};
+	while (1)
+	{
+		i++;
+ 1c0:	c8 01       	movw	r24, r16
+ 1c2:	01 96       	adiw	r24, 0x01	; 1
+		i = i%6;
+ 1c4:	66 e0       	ldi	r22, 0x06	; 6
+ 1c6:	70 e0       	ldi	r23, 0x00	; 0
+ 1c8:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <__divmodhi4>
+ 1cc:	8c 01       	movw	r16, r24
+		int j = number[i];
+ 1ce:	88 0f       	add	r24, r24
+ 1d0:	99 1f       	adc	r25, r25
+ 1d2:	e1 e0       	ldi	r30, 0x01	; 1
+ 1d4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1d6:	ec 0f       	add	r30, r28
+ 1d8:	fd 1f       	adc	r31, r29
+ 1da:	e8 0f       	add	r30, r24
+ 1dc:	f9 1f       	adc	r31, r25
+		setCharliePlexingLed(j);
+ 1de:	80 81       	ld	r24, Z
+ 1e0:	91 81       	ldd	r25, Z+1	; 0x01
+ 1e2:	0e 94 76 00 	call	0xec	; 0xec <__data_load_end>
+		wait(1000);
+ 1e6:	88 ee       	ldi	r24, 0xE8	; 232
+ 1e8:	93 e0       	ldi	r25, 0x03	; 3
+ 1ea:	0e 94 20 01 	call	0x240	; 0x240 <wait>
+ 1ee:	e8 cf       	rjmp	.-48     	; 0x1c0 <main+0x2a>
+
+Disassembly of section .text.libgcc.div:
+
+000001f0 <__divmodhi4>:
+ 1f0:	97 fb       	bst	r25, 7
+ 1f2:	07 2e       	mov	r0, r23
+ 1f4:	16 f4       	brtc	.+4      	; 0x1fa <__divmodhi4+0xa>
+ 1f6:	00 94       	com	r0
+ 1f8:	07 d0       	rcall	.+14     	; 0x208 <__divmodhi4_neg1>
+ 1fa:	77 fd       	sbrc	r23, 7
+ 1fc:	09 d0       	rcall	.+18     	; 0x210 <__divmodhi4_neg2>
+ 1fe:	0e 94 0c 01 	call	0x218	; 0x218 <__udivmodhi4>
+ 202:	07 fc       	sbrc	r0, 7
+ 204:	05 d0       	rcall	.+10     	; 0x210 <__divmodhi4_neg2>
+ 206:	3e f4       	brtc	.+14     	; 0x216 <__divmodhi4_exit>
+
+00000208 <__divmodhi4_neg1>:
+ 208:	90 95       	com	r25
+ 20a:	81 95       	neg	r24
+ 20c:	9f 4f       	sbci	r25, 0xFF	; 255
+ 20e:	08 95       	ret
+
+00000210 <__divmodhi4_neg2>:
+ 210:	70 95       	com	r23
+ 212:	61 95       	neg	r22
+ 214:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000216 <__divmodhi4_exit>:
+ 216:	08 95       	ret
+
+Disassembly of section .text.libgcc.div:
+
+00000218 <__udivmodhi4>:
+ 218:	aa 1b       	sub	r26, r26
+ 21a:	bb 1b       	sub	r27, r27
+ 21c:	51 e1       	ldi	r21, 0x11	; 17
+ 21e:	07 c0       	rjmp	.+14     	; 0x22e <__udivmodhi4_ep>
+
+00000220 <__udivmodhi4_loop>:
+ 220:	aa 1f       	adc	r26, r26
+ 222:	bb 1f       	adc	r27, r27
+ 224:	a6 17       	cp	r26, r22
+ 226:	b7 07       	cpc	r27, r23
+ 228:	10 f0       	brcs	.+4      	; 0x22e <__udivmodhi4_ep>
+ 22a:	a6 1b       	sub	r26, r22
+ 22c:	b7 0b       	sbc	r27, r23
+
+0000022e <__udivmodhi4_ep>:
+ 22e:	88 1f       	adc	r24, r24
+ 230:	99 1f       	adc	r25, r25
+ 232:	5a 95       	dec	r21
+ 234:	a9 f7       	brne	.-22     	; 0x220 <__udivmodhi4_loop>
+ 236:	80 95       	com	r24
+ 238:	90 95       	com	r25
+ 23a:	bc 01       	movw	r22, r24
+ 23c:	cd 01       	movw	r24, r26
+ 23e:	08 95       	ret

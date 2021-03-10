@@ -1,14 +1,27 @@
 /*
- * counter_t2_cmp.c
- *
- * Created: 21/02/2021 13:08:08
- * Author : Etienne
- */ 
+ * Project name:
+     Demo4_1 : Free running AD conversion on channel 1, PORTF.1
+ * Author: Avans-TI, JW
+ * Revision History: 
+     20101229: - initial release;
+ * Description:
+     This program gives an interrupt on each ms
+ * Test configuration:
+     MCU:             ATmega128
+     Dev.Board:       BIGAVR6
+     Oscillator:      External Clock 08.0000 MHz
+     Ext. Modules:    -
+     SW:              AVR-GCC
+ * NOTES:
+     - Turn ON the PORT LEDs at SW12.1 - SW12.8
+*/
+#define F_CPU 8000000UL
 
-#define F_CPU 8e6
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+
+#define BIT(x)	(1 << (x))
 
 void lcd_strobe_lcd_e(void);
 void init(void);
@@ -20,11 +33,12 @@ void lcd_clear(void);
 #define LCD_E 	3
 #define LCD_RS	2
 
-	
 // wait(): busy waiting for 'ms' millisecond
 // Used library: util/delay.h
-void wait( int ms ) {
-	for (int tms=0; tms<ms; tms++) {
+void wait( int ms )
+{
+	for (int tms=0; tms<ms; tms++)
+	{
 		_delay_ms( 1 );			// library function (max 30 ms at 8MHz)
 	}
 }
@@ -114,35 +128,37 @@ void lcd_write_cmd(unsigned char byte) {
 	PORTA &= ~(1<<LCD_RS);
 	lcd_strobe_lcd_e();
 }
-volatile int hunderdValue = 0;
-volatile int tenthValue = 0;
 
-void update_lcd(char value) {
-	if (value > '9') {
-	
-		tenthValue++;
-		TCNT2 = 0x00;
-	}
-	if (tenthValue > 9) {
-		hunderdValue++;
-		tenthValue = 0;
-	}
-	lcd_clear();
-	lcd_write_data(hunderdValue+ '0');
-	lcd_write_data(tenthValue+ '0');
-	lcd_write_data(TCNT2+ '0');
+void adcInit( void )
+{
+	ADMUX = 0b11100001;			// AREF=2,56 V, result left adjusted, channel1 at pin PF3
+	ADCSRA = 0b10000110;		// ADC-enable, no interrupt, no free running, division by 64
 }
 
-int main(void) {
+void update_lcd(int value) {
+	lcd_clear();
+	lcd_write_data(value/10 + '0');
+	lcd_write_data(value%10 + '0');
+}
 	
-	DDRD &= ~BIT(7);		// PD7 op input: DDRD=xxxx xxx0
-	DDRB = 0xFF;			// PORTB is output
-	TCCR2 = 0b00000111;		// counting via PD7, rising edge
+
+// Main program: Counting on T1
+int main( void )
+{
 	init();
 	
-	while (1) {
-		PORTB = TCNT2;		// Toon waarde TCCR2
-		update_lcd(TCNT2 + '0');
-		wait(100);
+	DDRF = 0x00;					// set PORTF for input (ADC)
+	DDRA = 0xFF;					// set PORTA for output
+	adcInit();						// initialize ADC
+
+	while (1)
+	{
+		ADCSRA |= BIT(6);				// Start ADC
+		while ( ADCSRA & BIT(6) ) ;		// Wait for completion
+		PORTA = ADCH;					// Show MSB (bit 9:2) of ADC
+		
+		update_lcd(ADCH);
+
+		wait(500);						// every 50 ms (busy waiting)
 	}
 }

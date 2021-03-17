@@ -10,13 +10,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-
-void lcd_strobe_lcd_e(void);
-void init(void);
-void lcd_write_string(char *str);
-void lcd_write_data(unsigned char byte);
-void lcd_write_cmd(unsigned char byte);
-void lcd_clear(void);
+#include "main.h"
 
 #define LCD_E 	3
 #define LCD_RS	2
@@ -79,7 +73,7 @@ void lcd_write_data(unsigned char byte) {
 	_delay_ms(50);
 }
 
-void lcd_write_string(char str[]) {
+void display_text(char str[]) {
 	// Het kan met een while:
 
 
@@ -124,9 +118,8 @@ int main(void)
 	lcd_clear();
 	init();
 	lcd_clear();
-	//lcd_write_string();
-
-lcd_write_string (text);
+	
+	display_text(text);
 
     while(1)
     {

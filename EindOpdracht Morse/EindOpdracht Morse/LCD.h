@@ -10,7 +10,7 @@
 #define LCD_H_
 
 void lcd_strobe_lcd_e(void);
-void init(void);
+void lcd_init(void);
 void lcd_write_data(unsigned char byte);
 void lcd_clear(void);
 

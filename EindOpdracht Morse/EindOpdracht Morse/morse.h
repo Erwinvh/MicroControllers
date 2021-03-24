@@ -19,7 +19,7 @@ typedef struct {
 }MorseCode;
 
 char getCharFromMorse(int morse[]);
-void getMorseFromChar(int *morse, char character);
+int * getMorseFromChar(char character);
 char compareArray(int a[],int b[],int size);
 
 #endif /* MORSE_H_ */

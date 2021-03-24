@@ -37,6 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../buzz.c \
 ../LCD.c \
 ../main.c \
 ../morse.c
@@ -49,21 +50,25 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+buzz.o \
 LCD.o \
 main.o \
 morse.o
 
 OBJS_AS_ARGS +=  \
+buzz.o \
 LCD.o \
 main.o \
 morse.o
 
 C_DEPS +=  \
+buzz.d \
 LCD.d \
 main.d \
 morse.d
 
 C_DEPS_AS_ARGS +=  \
+buzz.d \
 LCD.d \
 main.d \
 morse.d
@@ -82,6 +87,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./buzz.o: .././buzz.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega128A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega128A__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./LCD.o: .././LCD.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31

@@ -14,14 +14,7 @@
 #define LCD_RS	2
 
 
-/*Busy wait number of millisecs*/
-void wait( int ms ) {
-	for (int i=0; i<ms; i++) {
-		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
-	}
-}
-
-void init(){
+void lcd_init(){
 	// PORTC output mode and all low (also E and RS pin)
 	DDRC = 0xFF;
 	PORTC = 0x00;

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="EindOpdracht Morse.elf">                 
+  <executable name="B3.elf">                 
     <memory name="program">              
       <units>bytes</units>                 
       <length>131072</length>                 
-      <used>2035</used>                     
-      <free>129037</free>                     
+      <used>384</used>                     
+      <free>130688</free>                     
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 
       <length>4096</length>                 
-      <used>527</used>                     
-      <free>3569</free>                     
+      <used>2</used>                     
+      <free>4094</free>                     
     </memory>                              
   </executable>                            
 </project>                                 

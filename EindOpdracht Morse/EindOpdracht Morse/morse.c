@@ -8,6 +8,7 @@
 #include "morse.h"
 
 MorseCode MorseCodes[] = {
+	{' ', {empty, empty, empty, empty, empty, empty}},
 	{'A', {dot, dash, empty, empty, empty, empty}},
 	{'B', {dash, dot, dot, dot, empty, empty}},
 	{'C', {dash, dot, dash, dot, empty, empty}},
@@ -47,16 +48,28 @@ MorseCode MorseCodes[] = {
 };
 
 char getCharFromMorse(int morse[]) {
-	for (int i = 0; i < 36; i++) {
+	
+	for (int i = 0; i < 37; i++) {
 		if (compareArray(MorseCodes[i].morse, morse, 6)) {
 			return MorseCodes[i].character;
 		}
 	}
-	return ' ';
+	return '$';
 }
 
-void getMorseFromChar(int *morse, char character) {
-	//todo
+int * getMorseFromChar(char character) {
+	static int morse[6] = {empty, empty, empty, empty, empty, empty};
+	for (int i = 0; i < 37; i++) {
+		if (character == MorseCodes[i].character) {
+			
+			for (int j = 0; j < 6; j++)
+			{
+				morse[j] = MorseCodes[i].morse[j];
+			}
+			return morse;
+		}
+	}
+	return morse;
 }
 
 char compareArray(int a[],int b[],int size) {
